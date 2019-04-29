@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MarbleMazeEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marble Maze Editor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pML-EQ-21S">
+                                <rect key="frame" x="407" y="30" width="210" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="YGr-Ld-Qqc">
+                                <rect key="frame" x="112" y="84" width="800" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="eeN-Sa-oHP"/>
+                                    <constraint firstAttribute="width" constant="800" id="tIn-DX-rHc"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1z-Eg-GNK" customClass="LevelEditorView" customModule="MarbleMazeEditor" customModuleProvider="target">
+                                <rect key="frame" x="112" y="84" width="800" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="5if-v7-eZl"/>
+                                    <constraint firstAttribute="width" constant="800" id="hdU-pA-jDf"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Cs-LS-G5l">
+                                <rect key="frame" x="347.5" y="708" width="329" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Pet-Un-hVF"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="300" id="gWA-aR-02w"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Wall"/>
+                                    <segment title="Vortex"/>
+                                    <segment title="Star"/>
+                                    <segment title="Finish"/>
+                                    <segment title="Player"/>
+                                    <segment title="Empty"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="gameObjectSegment_Changed:" destination="BYZ-38-t0r" eventType="valueChanged" id="SP0-aU-x1w"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="log-UC-MGI">
+                                <rect key="frame" x="944" y="40" width="60" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JeD-8f-9t9"/>
+                                    <constraint firstAttribute="width" constant="60" id="gOv-v7-itY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Export">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="exportButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vnb-Nc-V2v"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h1z-Eg-GNK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fwd-Ae-FNQ"/>
+                            <constraint firstItem="YGr-Ld-Qqc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="I6N-vR-AiU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Cs-LS-G5l" secondAttribute="bottom" constant="25" id="Iji-FT-8C9"/>
+                            <constraint firstItem="YGr-Ld-Qqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bhh-ED-yk0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="log-UC-MGI" secondAttribute="trailing" constant="20" id="dSc-Yg-N7N"/>
+                            <constraint firstItem="YGr-Ld-Qqc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dv6-0s-Ceb"/>
+                            <constraint firstItem="YGr-Ld-Qqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gCb-z8-twO"/>
+                            <constraint firstItem="pML-EQ-21S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="niW-7t-zlO"/>
+                            <constraint firstItem="log-UC-MGI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="r2m-qh-AgQ"/>
+                            <constraint firstItem="7Cs-LS-G5l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uEL-us-kNm"/>
+                            <constraint firstItem="h1z-Eg-GNK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uYf-b1-o3w"/>
+                            <constraint firstItem="pML-EQ-21S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="w7M-ow-Ooa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="levelContainer" destination="h1z-Eg-GNK" id="ZbG-hX-cmX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="14.648437499999998" y="22.65625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background.jpg" width="1024" height="768"/>
+    </resources>
+</document>
