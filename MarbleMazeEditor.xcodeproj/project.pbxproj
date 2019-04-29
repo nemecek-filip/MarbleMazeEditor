@@ -22,6 +22,7 @@
 		DCD1F4B42276F90F00D95261 /* LevelEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1F4B32276F90F00D95261 /* LevelEditorView.swift */; };
 		DCD1F4B622771FF700D95261 /* GameObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1F4B522771FF700D95261 /* GameObjects.swift */; };
 		DCD1F4BC2277433800D95261 /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1F4BB2277433800D95261 /* FileExporter.swift */; };
+		DCD1F4BE2277521900D95261 /* GameTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1F4BD2277521900D95261 /* GameTile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DCD1F4B32276F90F00D95261 /* LevelEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelEditorView.swift; sourceTree = "<group>"; };
 		DCD1F4B522771FF700D95261 /* GameObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObjects.swift; sourceTree = "<group>"; };
 		DCD1F4BB2277433800D95261 /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
+		DCD1F4BD2277521900D95261 /* GameTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				DCD1F4B32276F90F00D95261 /* LevelEditorView.swift */,
+				DCD1F4BD2277521900D95261 /* GameTile.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCD1F4B622771FF700D95261 /* GameObjects.swift in Sources */,
+				DCD1F4BE2277521900D95261 /* GameTile.swift in Sources */,
 				DCD1F4B42276F90F00D95261 /* LevelEditorView.swift in Sources */,
 				DCD1F4BC2277433800D95261 /* FileExporter.swift in Sources */,
 				DCD1F49122764C9B00D95261 /* ViewController.swift in Sources */,

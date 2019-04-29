@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        levelContainer.activeGameObject = GameObjects.empty
+        levelContainer.activeGameObject = GameObject.empty
     }
 
     @IBAction func gameObjectSegment_Changed(_ sender: UISegmentedControl) {
@@ -37,17 +37,17 @@ class ViewController: UIViewController {
         // probably could use some refactoring
         switch selectedGameObject {
         case .wall:
-            levelContainer.activeGameObject = GameObjects.block
+            levelContainer.activeGameObject = GameObject(image: GameObjects.block, code: "x")
         case .vortex:
-            levelContainer.activeGameObject = GameObjects.vortex
+            levelContainer.activeGameObject = GameObject(image: GameObjects.vortex, code: "v")
         case .star:
-            levelContainer.activeGameObject = GameObjects.star
+            levelContainer.activeGameObject = GameObject(image: GameObjects.star, code: "s")
         case .finish:
-            levelContainer.activeGameObject = GameObjects.finish
+            levelContainer.activeGameObject = GameObject(image: GameObjects.finish, code: "f")
         case .player:
-            levelContainer.activeGameObject = GameObjects.player
+            levelContainer.activeGameObject = GameObject(image: GameObjects.player, code: "p")
         case .empty:
-            levelContainer.activeGameObject = GameObjects.empty
+            levelContainer.activeGameObject = GameObject.empty
         }
     }
     

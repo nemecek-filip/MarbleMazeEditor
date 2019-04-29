@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct GameObject {
+    var image: UIImage
+    var code: Character
+    
+    static var empty : GameObject {
+        return GameObject(image: GameObjects.empty, code: " ")
+    }
+}
+
 enum GameObjects {
     static var block = UIImage(named: "block")!
     static var star = UIImage(named: "star")!

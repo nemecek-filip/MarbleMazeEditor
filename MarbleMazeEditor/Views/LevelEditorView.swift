@@ -17,7 +17,7 @@ class LevelEditorView: UIView {
     let innerColumns = 1..<15
     let innerRows = 1..<11
     
-    var activeGameObject: UIImage?
+    var activeGameObject: GameObject?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,23 +36,22 @@ class LevelEditorView: UIView {
     private func initLevelContainer() {
         isUserInteractionEnabled = true // So Tap gesture recognizer works
         
-        let blockImage = UIImage(named: "block")!
         for column in 0..<columns {
             
             // Top  border
-            let topBorderTile = UIImageView(image: GameObjects.block)
+            let topBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
             topBorderTile.frame = CGRect(x: column * squareSize, y: 0, width: squareSize, height: squareSize)
             addSubview(topBorderTile)
             
             // Bottom border
-            let bottomBorderTile = UIImageView(image: blockImage)
+            let bottomBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
             bottomBorderTile.frame = CGRect(x: column * squareSize, y: (rows - 1) * squareSize, width: squareSize, height: squareSize)
             addSubview(bottomBorderTile)
             
             // First column? Create left border
             if column == 0 {
                 for row in innerRows {
-                    let leftBorderTile = UIImageView(image: blockImage)
+                    let leftBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
                     leftBorderTile.frame = CGRect(x: 0, y: row * squareSize, width: squareSize, height: squareSize)
                     addSubview(leftBorderTile)
                 }
@@ -61,7 +60,7 @@ class LevelEditorView: UIView {
             // Last column? Create right border
             if column == columns - 1 {
                 for row in innerRows {
-                    let leftBorderTile = UIImageView(image: blockImage)
+                    let leftBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
                     leftBorderTile.frame = CGRect(x: (columns - 1) * 50, y: row * squareSize, width: squareSize, height: squareSize)
                     addSubview(leftBorderTile)
                 }
@@ -71,7 +70,7 @@ class LevelEditorView: UIView {
         // Init inner squares with tappable ImageViews
         for column in innerColumns {
             for row in innerRows {
-                let variableTile = UIImageView(image: GameObjects.empty)
+                let variableTile = GameTile(image: GameObjects.empty, gameObjectCode: " ")
                 variableTile.frame = CGRect(x: column * squareSize, y: row * squareSize, width: squareSize, height: squareSize)
                 variableTile.isUserInteractionEnabled = true
                 
@@ -86,8 +85,9 @@ class LevelEditorView: UIView {
         let view = recognizer.view
         let location = recognizer.location(in: view)
         
-        if let imageView = view?.hitTest(location, with: nil) as? UIImageView {
-            imageView.image = activeGameObject
+        if let gameTile = view?.hitTest(location, with: nil) as? GameTile {
+            gameTile.configure(with: activeGameObject ?? GameObject(image: GameObjects.empty, code: " "))
+            
         }
         
     }
