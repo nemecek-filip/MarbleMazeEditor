@@ -63,12 +63,13 @@ class ViewController: UIViewController {
         // create file?
         let exporter = FileExporter()
         
-        guard let fileURL = exporter.exportLevelToFile(levelString: levelString, filename: "awesomeLevel.txt") else {
+        guard let path = exporter.exportLevelToFile(levelString: levelString, filename: "awesomeLevel.txt") else {
             showAlert(title: "Error", message: "There was a problem saving the file")
             return
         }
         
-        let ac = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+        let file = URL(fileURLWithPath: path.path)
+        let ac = UIActivityViewController(activityItems: [file], applicationActivities: nil)
         ac.popoverPresentationController?.sourceView = sender
         ac.popoverPresentationController?.sourceRect = sender.bounds
         ac.popoverPresentationController?.permittedArrowDirections = .right
