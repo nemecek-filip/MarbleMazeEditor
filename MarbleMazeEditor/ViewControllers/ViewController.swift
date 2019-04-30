@@ -30,6 +30,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         levelContainer.activeGameObject = GameObject.empty
     }
+    
+    func showAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
+    }
 
     @IBAction func gameObjectSegment_Changed(_ sender: UISegmentedControl) {
         let selectedGameObject = GameObjectSegments(rawValue: sender.selectedSegmentIndex)!
@@ -57,7 +63,10 @@ class ViewController: UIViewController {
         // create file?
         let exporter = FileExporter()
         
-        let fileURL = exporter.exportLevelToFile(levelString: levelString, filename: "awesomeLevel.txt")
+        guard let fileURL = exporter.exportLevelToFile(levelString: levelString, filename: "awesomeLevel.txt") else {
+            showAlert(title: "Error", message: "There was a problem saving the file")
+            return
+        }
         
         let ac = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
         ac.popoverPresentationController?.sourceView = sender
