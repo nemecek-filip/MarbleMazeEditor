@@ -30,7 +30,22 @@ class LevelEditorView: UIView {
     }
     
     func getCurrentLevelString() -> String {
-        return "implementation needed :-)"
+        
+        var levelString = String()
+        var currentCharacterPosition = 1
+        
+        let gameTiles = subviews.compactMap({ $0 as? GameTile })
+        let sortedbyColumn = gameTiles.sorted { $0.column < $1.column }
+        let sortedTiles = sortedbyColumn.sorted { $0.row < $1.row }
+        
+        for tile in sortedTiles {
+            levelString.append(tile.gameObjectCode)
+            if currentCharacterPosition.isMultiple(of: columns) {
+                levelString.append("\n")
+            }
+            currentCharacterPosition += 1
+        }
+        return levelString
     }
     
     private func initLevelContainer() {
@@ -39,19 +54,19 @@ class LevelEditorView: UIView {
         for column in 0..<columns {
             
             // Top  border
-            let topBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
+            let topBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x", column: column, row: 0)
             topBorderTile.frame = CGRect(x: column * squareSize, y: 0, width: squareSize, height: squareSize)
             addSubview(topBorderTile)
             
             // Bottom border
-            let bottomBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
+            let bottomBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x", column: column, row: rows - 1)
             bottomBorderTile.frame = CGRect(x: column * squareSize, y: (rows - 1) * squareSize, width: squareSize, height: squareSize)
             addSubview(bottomBorderTile)
             
             // First column? Create left border
             if column == 0 {
                 for row in innerRows {
-                    let leftBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
+                    let leftBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x", column: column, row: row)
                     leftBorderTile.frame = CGRect(x: 0, y: row * squareSize, width: squareSize, height: squareSize)
                     addSubview(leftBorderTile)
                 }
@@ -60,7 +75,7 @@ class LevelEditorView: UIView {
             // Last column? Create right border
             if column == columns - 1 {
                 for row in innerRows {
-                    let leftBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x")
+                    let leftBorderTile = GameTile(image: GameObjects.block, gameObjectCode: "x", column: column, row: row)
                     leftBorderTile.frame = CGRect(x: (columns - 1) * 50, y: row * squareSize, width: squareSize, height: squareSize)
                     addSubview(leftBorderTile)
                 }
@@ -70,7 +85,8 @@ class LevelEditorView: UIView {
         // Init inner squares with tappable ImageViews
         for column in innerColumns {
             for row in innerRows {
-                let variableTile = GameTile(image: GameObjects.empty, gameObjectCode: " ")
+
+                let variableTile = GameTile(image: GameObjects.empty, gameObjectCode: " ", column: column, row: row)
                 variableTile.frame = CGRect(x: column * squareSize, y: row * squareSize, width: squareSize, height: squareSize)
                 variableTile.isUserInteractionEnabled = true
                 
@@ -87,9 +103,6 @@ class LevelEditorView: UIView {
         
         if let gameTile = view?.hitTest(location, with: nil) as? GameTile {
             gameTile.configure(with: activeGameObject ?? GameObject(image: GameObjects.empty, code: " "))
-            
         }
-        
     }
-
 }
