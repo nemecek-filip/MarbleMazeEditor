@@ -11,10 +11,14 @@ import UIKit
 class GameTile: UIImageView {
 
     private(set) var gameObjectCode: Character = " "
+    var column: Int = 0
+    var row: Int = 0
     
-    init(image: UIImage?, gameObjectCode: Character) {
+    init(image: UIImage?, gameObjectCode: Character, column: Int, row: Int) {
         super.init(image: image)
         self.gameObjectCode = gameObjectCode
+        self.column = column
+        self.row = row
     }
     
     func configure(with gameObject: GameObject) {
