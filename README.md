@@ -6,7 +6,7 @@
 
 ---
 
-## Current version allows you to design your level and export.txt file
+## Current version allows you to design your level and export .txt file
 
 ### Feel free to join :-) You can reach me on [Twitter](https://twitter.com/nemecek_f) (DMs open)
 
@@ -14,7 +14,7 @@
 
 ### Contributors:
 #### Rob Baldwin [@isSwifty](https://twitter.com/isSwifty) 
-#### Drew Westcott [@ drewwestcott](https://twitter.com/drewwestcott) 
+#### Drew Westcott [@drewwestcott](https://twitter.com/drewwestcott) 
 
 ---
 
