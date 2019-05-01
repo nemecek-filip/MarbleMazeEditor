@@ -19,6 +19,18 @@ class LevelEditorView: UIView {
     
     var activeGameObject: GameObject?
     
+    var currentPlayerPosition : GameTile? {
+        willSet {
+            currentPlayerPosition?.configure(with: GameObject.empty)
+        }
+    }
+    
+    var currentFinishPosition: GameTile? {
+        willSet {
+            currentFinishPosition?.configure(with: GameObject.empty)
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initLevelContainer()
@@ -103,6 +115,11 @@ class LevelEditorView: UIView {
         
         if let gameTile = view?.hitTest(location, with: nil) as? GameTile {
             gameTile.configure(with: activeGameObject ?? GameObject(image: GameObjects.empty, code: " "))
+            if activeGameObject?.code == "p" {
+                currentPlayerPosition = gameTile
+            } else if activeGameObject?.code == "f" {
+                currentFinishPosition = gameTile
+            }
         }
     }
 }
