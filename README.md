@@ -5,6 +5,13 @@
 ###  [Project link](https://www.hackingwithswift.com/100/85)
 
 ---
+## How to use 
+
+### Check out [releases](https://twitter.com/nemecek_f) for working versions.  
+
+### Editor uses "p" to represent player position, don't forget to update your loading code in game to either ignore "p" or use it to create player position.
+
+---
 
 ## Current version allows you to design your level and export .txt file
 
