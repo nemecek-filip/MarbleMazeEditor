@@ -29,6 +29,29 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         levelContainer.activeGameObject = GameObject.empty
+        
+        addPlayLevelButton()
+    }
+    
+    func addPlayLevelButton() {
+        let playLevel = UIButton(frame: CGRect(x: 20, y: 40, width: 70, height: 44))
+        playLevel.setTitle("Play!", for: .normal)
+        playLevel.backgroundColor = UIColor.white
+        playLevel.setTitleColor(UIColor.darkGray, for: .normal)
+        
+        playLevel.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        
+        view.addSubview(playLevel)
+    }
+    
+    @objc func playButtonTapped() {
+        let currentLevelString = levelContainer.getCurrentLevelString()
+        
+        let modifiedString = currentLevelString.replacingOccurrences(of: "\n", with: "$$$").replacingOccurrences(of: " ", with: "_")
+        
+        let marbleGameUrlString = "marblemaze://\(modifiedString)"
+        
+        UIApplication.shared.open(URL(string: marbleGameUrlString)!, options: [:], completionHandler: nil)
     }
     
     func showAlert(title: String, message: String) {
