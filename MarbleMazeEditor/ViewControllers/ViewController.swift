@@ -1,4 +1,4 @@
-//
+//my version 
 //  ViewController.swift
 //  MarbleMazeEditor
 //
@@ -7,6 +7,8 @@
 //
 
 import UIKit
+
+
 
 enum GameObjectSegments: Int {
     case wall
@@ -29,6 +31,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         levelContainer.activeGameObject = GameObject.empty
+
     }
     
     func showAlert(title: String, message: String) {
@@ -79,5 +82,20 @@ class ViewController: UIViewController {
     }
     
 
+    @IBAction func Save(_ sender: UIButton) {
+        
+        let levelString = levelContainer.getCurrentLevelString()
+        
+        if let levelsVS = storyboard?.instantiateViewController(withIdentifier: "levelsVC") as? LevelsViewController {
+            levelsVS.presentedFromSaveButton = true
+            levelArray.append(levelString)
+            
+            present(levelsVS, animated: true)
+
+        }
+ 
+    }
+        
 }
+
 

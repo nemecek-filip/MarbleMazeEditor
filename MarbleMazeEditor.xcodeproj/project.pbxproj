@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8511C9842279E80A00E92F96 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8511C9832279E80A00E92F96 /* LevelsViewController.swift */; };
+		8511C9862279EBCE00E92F96 /* ExtentionForTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8511C9852279EBCE00E92F96 /* ExtentionForTableView.swift */; };
 		DCD1F48F22764C9B00D95261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1F48E22764C9B00D95261 /* AppDelegate.swift */; };
 		DCD1F49122764C9B00D95261 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD1F49022764C9B00D95261 /* ViewController.swift */; };
 		DCD1F49422764C9B00D95261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD1F49222764C9B00D95261 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8511C9832279E80A00E92F96 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		8511C9852279EBCE00E92F96 /* ExtentionForTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionForTableView.swift; sourceTree = "<group>"; };
 		DCD1F48B22764C9B00D95261 /* MarbleMazeEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarbleMazeEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD1F48E22764C9B00D95261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD1F49022764C9B00D95261 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 			isa = PBXGroup;
 			children = (
 				DCD1F49022764C9B00D95261 /* ViewController.swift */,
+				8511C9832279E80A00E92F96 /* LevelsViewController.swift */,
+				8511C9852279EBCE00E92F96 /* ExtentionForTableView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,7 +225,9 @@
 				DCD1F4BE2277521900D95261 /* GameTile.swift in Sources */,
 				DCD1F4B42276F90F00D95261 /* LevelEditorView.swift in Sources */,
 				DCD1F4BC2277433800D95261 /* FileExporter.swift in Sources */,
+				8511C9842279E80A00E92F96 /* LevelsViewController.swift in Sources */,
 				DCD1F49122764C9B00D95261 /* ViewController.swift in Sources */,
+				8511C9862279EBCE00E92F96 /* ExtentionForTableView.swift in Sources */,
 				DCD1F48F22764C9B00D95261 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,8 +375,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64798CH77E;
+				DEVELOPMENT_TEAM = 4A4884729L;
 				INFOPLIST_FILE = MarbleMazeEditor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -385,8 +394,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64798CH77E;
+				DEVELOPMENT_TEAM = 4A4884729L;
 				INFOPLIST_FILE = MarbleMazeEditor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

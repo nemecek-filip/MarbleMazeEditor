@@ -9,7 +9,7 @@
 import UIKit
 
 class LevelEditorView: UIView {
-
+    
     let squareSize = 50
     let columns = 16
     let rows = 12
@@ -18,18 +18,6 @@ class LevelEditorView: UIView {
     let innerRows = 1..<11
     
     var activeGameObject: GameObject?
-    
-    var currentPlayerPosition : GameTile? {
-        willSet {
-            currentPlayerPosition?.configure(with: GameObject.empty)
-        }
-    }
-    
-    var currentFinishPosition: GameTile? {
-        willSet {
-            currentFinishPosition?.configure(with: GameObject.empty)
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,6 +43,7 @@ class LevelEditorView: UIView {
             if currentCharacterPosition.isMultiple(of: columns) {
                 levelString.append("\n")
             }
+            
             currentCharacterPosition += 1
         }
         return levelString
@@ -97,7 +86,7 @@ class LevelEditorView: UIView {
         // Init inner squares with tappable ImageViews
         for column in innerColumns {
             for row in innerRows {
-
+                
                 let variableTile = GameTile(image: GameObjects.empty, gameObjectCode: " ", column: column, row: row)
                 variableTile.frame = CGRect(x: column * squareSize, y: row * squareSize, width: squareSize, height: squareSize)
                 variableTile.isUserInteractionEnabled = true
@@ -115,11 +104,6 @@ class LevelEditorView: UIView {
         
         if let gameTile = view?.hitTest(location, with: nil) as? GameTile {
             gameTile.configure(with: activeGameObject ?? GameObject(image: GameObjects.empty, code: " "))
-            if activeGameObject?.code == "p" {
-                currentPlayerPosition = gameTile
-            } else if activeGameObject?.code == "f" {
-                currentFinishPosition = gameTile
-            }
         }
     }
 }
